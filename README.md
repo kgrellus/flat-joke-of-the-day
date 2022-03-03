@@ -1,13 +1,7 @@
-# aoc-notifications
-Project for receiving notifications for completed aoc tasks in your leaderboard via the App 'Pushover'
+# flat-joke-of-the-day
+Project for sending a flat joke from https://www.1a-flachwitze.de/ via slack webhook.
 
-add .env file for key and token input:
+add .env file for slack webhook configuration:
 ```dotenv
-APP_TOKEN=foo
-USER_KEY=bar
-
-AOC_LEADERBOARD_ID=962118
-AOC_SESSION_COOKIE=cookie
-
-REFRESH_INTERVAL_MINUTES=20
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/fooobar
 ```
