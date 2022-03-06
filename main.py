@@ -29,7 +29,7 @@ def get_flat_joke() -> str:
     parsed_html = BeautifulSoup(response.text, features="html.parser")
     question = parsed_html.find('header', attrs={'class': 'entry-header'}).text
     answer = parsed_html.findAll('div', attrs={'class': 'entry-content'})[2].next_element.text
-    return f'{question} - {answer}'
+    return f'{question} {answer}'
 
 
 def send_slack_notification(url: str, message: str):
