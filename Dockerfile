@@ -10,4 +10,6 @@ COPY .env /usr/src/app/
 
 COPY docker/run.sh /usr/src/app/
 
+RUN pipenv install
+
 CMD [ "./run.sh" ]
