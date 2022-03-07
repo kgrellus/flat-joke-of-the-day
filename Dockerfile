@@ -4,12 +4,14 @@ WORKDIR /usr/src/app
 
 RUN pip install pipenv
 
-COPY main.py /usr/src/app/
 COPY Pipfile* /usr/src/app/
+
+RUN pipenv install
+
 COPY .env /usr/src/app/
 
 COPY docker/run.sh /usr/src/app/
 
-RUN pipenv install
+COPY main.py /usr/src/app/
 
 CMD [ "./run.sh" ]

@@ -29,7 +29,9 @@ def get_flat_joke() -> str:
     parsed_html = BeautifulSoup(response.text, features="html.parser")
     question = parsed_html.find('header', attrs={'class': 'entry-header'}).text
     answer = parsed_html.findAll('div', attrs={'class': 'entry-content'})[2].next_element.text
-    return f'{question} {answer}'
+    pushcut_link = getenv('PUSHCUT_WEBHOOK_URL')
+    link_addition = "" if not pushcut_link else f'\n<{pushcut_link}|Neuer Witz>'
+    return f'{question} {answer}{link_addition}'
 
 
 def send_slack_notification(url: str, message: str):
